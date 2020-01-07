@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "alias": "solitude-app",
+    "name": "solitude-app",
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "/index.html"
+        }
+    ]
+}
