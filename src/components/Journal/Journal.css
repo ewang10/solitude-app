@@ -1,0 +1,40 @@
+.categories {
+    grid-area: categories;
+    margin: 10px auto;
+}
+  
+.categories > .category {
+      background-color: rgb(187, 182, 182);
+      font-size: 1em;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      text-align: center;
+}
+  
+.journals {
+    grid-area: journals;
+    margin: 10px 20px;
+}
+  
+.journals > .journal {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    margin: 5px 15px;
+    padding: 10px;
+}
+  
+.journal > .controller {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5%;
+}
+  
+.journal > .controller > button {
+      padding: 5px 10px;
+      font-size: 1em;
+}
+  
+.journals button {
+    margin-left: 15px;
+}

@@ -1,0 +1,27 @@
+.login_form {
+    background-color: rgb(187, 182, 182);
+    padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form > legend {
+    text-align: center;
+}
+
+.login_form > div {
+    margin-top: 5px;
+}
+
+.login_form > div > label {
+    display: inline-block;
+    width: 90px;
+}
+
+.login_form > button {
+    width: 30%;
+    margin-top: 10px;
+    align-self: flex-end;
+    padding: 5px 7px;
+    cursor: pointer;
+}
