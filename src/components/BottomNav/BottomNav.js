@@ -6,10 +6,10 @@ class BottomNav extends Component {
     render() {
         return (
             <nav className='BottomNav'>
-                <div className="nav search">
+                <div className="nav">
                     <Link to='/search'>Search</Link>
                 </div>
-                <div className="nav journal">
+                <div className="nav">
                     <Link to='/journals'>Journals</Link>
                 </div>
             </nav>

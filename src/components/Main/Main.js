@@ -11,7 +11,7 @@ class Main extends Component {
                     <p>Solitude helps you control your meditations, so you can see how you improve spiritually overtime.</p>
                     <button type="button">
                         <Link to='/search'>
-                            EXPLORE
+                            DEMO
                         </Link>
                     </button>
                 </header>

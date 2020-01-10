@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import AddDateCategory from './AddDateCategory';
+import AddJournal from './AddJournal';
 
-describe('AddDateCategory Component', () => {
+describe('AddJournal Component', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDom.render(<AddDateCategory />, div);
+        ReactDom.render(<AddJournal />, div);
         ReactDom.unmountComponentAtNode(div);
     })
 })

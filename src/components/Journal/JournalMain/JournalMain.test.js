@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import Item from './Item';
+import JournalMain from './JournalMain';
 
-describe('Item Component', () => {
+describe('JournalMain Component', () => {
   it('renders without crashing', () => {
     const journal = {
       id: 1,
@@ -13,13 +13,13 @@ describe('Item Component', () => {
       beforemood: "stressed",
       aftermood: "relieved",
       date: new Date(),
-      goal: '',
+      goal: 'stress relieve',
       content: ''
   };
     const div = document.createElement('div');
     ReactDom.render(
       <BrowserRouter>
-        <Item journal={journal}/>
+        <JournalMain journal={journal}/>
       </BrowserRouter>
       , div);
       ReactDom.unmountComponentAtNode(div);

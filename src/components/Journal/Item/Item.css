@@ -1,0 +1,17 @@
+.journal {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    margin: 5px 15px;
+    padding: 10px;
+}
+  
+.journal > .controller {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5%;
+}
+  
+.journal > .controller > button {
+      font-size: 1em;
+}
