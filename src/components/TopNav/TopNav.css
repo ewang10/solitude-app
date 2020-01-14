@@ -16,8 +16,9 @@
     cursor: pointer;
 }
 
-.TopNav .register-login {
+.TopNav .register-login-header {
     display: flex;
     justify-content: space-between;
     width: 110px;
 }
+
