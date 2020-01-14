@@ -15,6 +15,8 @@ import JournalMain from '../Journal/JournalMain/JournalMain';
 import TokenService from '../../services/token-service';
 import IdleService from '../../services/idle-service';
 import AuthApiService from '../../services/auth-api-service';
+import PublicOnlyRoute from '../Util/PublicOnlyRoute';
+import PrivateRoute from '../Util/PrivateRoute';
 import './App.css';
 
 class App extends Component {
@@ -66,20 +68,20 @@ class App extends Component {
         <TopNav />
         <main>
           <Route exact path="/" component={Main} />
-          <Route path='/register' component={RegistrationForm} />
-          <Route path='/login' component={LoginForm} />
-          <Route path='/search' component={MeditationSearch} />
-          <Route exact path='/journals' component={Journal} />
-          <Route path='/journals/date-category/:id' component={Journal} />
-          <Route 
+          <PublicOnlyRoute path='/register' component={RegistrationForm} />
+          <PublicOnlyRoute path='/login' component={LoginForm} />
+          <PrivateRoute path='/search' component={MeditationSearch} />
+          <PrivateRoute exact path='/journals' component={Journal} />
+          <PrivateRoute path='/journals/date-category/:id' component={Journal} />
+          <PrivateRoute 
             path='/journals/journal/:id' 
             render = {() => <JournalMain journal={journal}/>}
           />
-          <Route path='/journals/add-date-category' component={AddDateCategory} />
-          <Route path='/journals/add-journal' component={AddJournal} />
+          <PrivateRoute path='/journals/add-date-category' component={AddDateCategory} />
+          <PrivateRoute path='/journals/add-journal' component={AddJournal} />
         </main>
-        <Route path='/search' component={BottomNav} />
-        <Route path='/journals' component={BottomNav} />
+        <PrivateRoute path='/search' component={BottomNav} />
+        <PrivateRoute path='/journals' component={BottomNav} />
       </div>
     );
   }
