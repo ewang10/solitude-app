@@ -7,6 +7,7 @@
 
 .video_search > .search-wrapper {
     display: flex;
+    justify-content: center;
 }
   
 .video_search > label {
@@ -32,4 +33,35 @@
     border-radius: 0 5px 5px 0;
     text-align: center;
     border:none;
+}
+
+.no-results {
+    color: red;
+    font-weight: 900;
+    text-align: center;
+}
+
+#results {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#results > #results-list {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width: 568px) {
+    #results, .video_search > .search-wrapper > input {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #results, .video_search > .search-wrapper > input {
+        width: 45%;
+    }
 }
