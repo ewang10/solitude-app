@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Button from '../../Util/Button/Button';
+import JournalContext from '../../../contexts/JournalContext';
 import './DateCategory.css';
 
 class DateCategory extends Component {
-
+    static contextType = JournalContext;
     render() {
-        const categories = this.props.categories.map((category, i) => {
+        const categories = this.context.categories.map((category, i) => {
             return (
-                <div className="category" key={i}>
+                <div 
+                    className="category" 
+                    key={i}
+                    onClick={() => this.context.updateSelectedCategory(category)}
+                >
                     <h4>
                         <NavLink to={`/journals/date-category/${category.id}`}>
                             {category.name}

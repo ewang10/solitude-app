@@ -10,6 +10,7 @@ import Journal from '../Journal/Journal';
 import AddDateCategory from '../Journal/AddDateCategory/AddDateCategory';
 import AddJournal from '../Journal/AddJournal/AddJournal';
 import JournalMain from '../Journal/JournalMain/JournalMain';
+import EditJournal from '../Journal/EditJournal/EditJournal';
 //import DateCategory from '../Journal/DateCategory/DateCategory';
 //import Filter from '../Journal/Filter/Filter';
 import TokenService from '../../services/token-service';
@@ -17,6 +18,7 @@ import IdleService from '../../services/idle-service';
 import AuthApiService from '../../services/auth-api-service';
 import PublicOnlyRoute from '../Util/PublicOnlyRoute';
 import PrivateRoute from '../Util/PrivateRoute';
+import { JournalProvider } from '../../contexts/JournalContext';
 import './App.css';
 
 class App extends Component {
@@ -52,17 +54,6 @@ class App extends Component {
     this.forceUpdate();
   }
   render() {
-    const journal = {
-      id: 1,
-      categoryid: 1,
-      name: 'journal 1',
-      duration: 5,
-      beforemood: "stressed",
-      aftermood: "relieved",
-      date: new Date(),
-      goal: 'stress relieve',
-      content: ''
-  };
     return (
       <div className="App">
         <TopNav />
@@ -71,14 +62,14 @@ class App extends Component {
           <PublicOnlyRoute path='/register' component={RegistrationForm} />
           <PublicOnlyRoute path='/login' component={LoginForm} />
           <PrivateRoute path='/search' component={MeditationSearch} />
-          <PrivateRoute exact path='/journals' component={Journal} />
-          <PrivateRoute path='/journals/date-category/:id' component={Journal} />
-          <PrivateRoute 
-            path='/journals/journal/:id' 
-            render = {() => <JournalMain journal={journal}/>}
-          />
-          <PrivateRoute path='/journals/add-date-category' component={AddDateCategory} />
-          <PrivateRoute path='/journals/add-journal' component={AddJournal} />
+          <JournalProvider>
+            <PrivateRoute exact path='/journals' component={Journal} />
+            <PrivateRoute path='/journals/date-category/:id' component={Journal} />
+            <PrivateRoute path='/journals/journal/:id' component={JournalMain} />
+            <PrivateRoute path='/journals/add-date-category' component={AddDateCategory} />
+            <PrivateRoute path='/journals/add-journal' component={AddJournal} />
+            <PrivateRoute path='/journals/edit-journal/:id' component={EditJournal} />
+          </JournalProvider>
         </main>
         <PrivateRoute path='/search' component={BottomNav} />
         <PrivateRoute path='/journals' component={BottomNav} />

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import JournalContext from '../../../contexts/JournalContext';
 import JournalApiService from '../../../services/journal-api-service';
 import ValidationError from '../../Util/ValidationError/ValidationError';
-import './AddJournal.css';
+import '../AddJournal/AddJournal.css';
 import '../../Util/Button/Button.css';
 
-class AddJournal extends Component {
+class EditJournal extends Component {
     static contextType = JournalContext;
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class AddJournal extends Component {
                 touched: false
             },
             duration: {
-                value: null,
+                value: '',
                 touched: false
             },
             goal: {
@@ -42,6 +42,56 @@ class AddJournal extends Component {
         };
     }
 
+    componentDidMount() {
+        this.context.clearError();
+        const journalID = this.context.journal.id;
+        JournalApiService.getJournal(journalID)
+            .then(journal => {
+                this.setState({
+                    title: {
+                        value: journal.name
+                    },
+                    date: {
+                        value: this.formatDate(journal.date)
+                    },
+                    duration: {
+                        value: journal.duration
+                    },
+                    goal: {
+                        value: journal.goal
+                    },
+                    beforemood: {
+                        value: journal.beforemood
+                    },
+                    aftermood: {
+                        value: journal.aftermood
+                    },
+                    category: {
+                        value: this.context.categories.find(category =>
+                            category.id === journal.categoryid
+                        ).name
+                    },
+                    content: journal.content
+                });
+            })
+            .catch(error => this.context.setError(error))
+    }
+
+    formatDate(date) {
+        const d = new Date(date);
+        let month = '' + (d.getMonth() + 1);
+        let day = '' + d.getDate();
+        let year = d.getFullYear();
+
+        if (month.length < 2) {
+            month = '0' + month;
+        }
+        if (day.length < 2) {
+            day = '0' + day;
+        }
+        return [year, month, day].join('-');
+    }
+
     findCategoryID(name) {
         const category = this.context.categories.find(category =>
             category.name === name
@@ -53,7 +103,7 @@ class AddJournal extends Component {
         event.preventDefault();
         this.context.clearError();
         const { title, date, duration, goal, beforeMood, afterMood, journalDateCategory, journalContent } = event.target;
-        const newJournal = {
+        const updatedJournal = {
             name: title.value,
             date: date.value,
             duration: duration.value,
@@ -64,17 +114,11 @@ class AddJournal extends Component {
             content: journalContent.value
         };
 
-        JournalApiService.postJournal(newJournal)
+        const journalID = this.context.journal.id;
+
+        JournalApiService.patchJournal(journalID, updatedJournal)
             .then(journal => {
-                title.value = '';
-                date.value = '';
-                duration.value = '';
-                goal.value = '';
-                beforeMood.value = '';
-                afterMood.value = '';
-                journalDateCategory.value = '';
-                journalContent.value = '';
-                this.context.addJournal(journal);
+                this.context.patchJournal(journalID, updatedJournal);
                 this.context.reset();
                 this.props.history.push('/journals');
             })
@@ -129,7 +173,7 @@ class AddJournal extends Component {
         })
     }
 
-    
+
 
     updateGoal(goal) {
         this.setState({
@@ -205,6 +249,7 @@ class AddJournal extends Component {
         const options = this.context.categories.map((category, i) =>
             <option key={i} value={category.name}>{category.name}</option>
         )
+        const { title, date, duration, beforemood, aftermood, goal, category, content } = this.state;
         return (
             <div className='AddJournal'>
                 <h3>Add a Journal</h3>
@@ -218,6 +263,7 @@ class AddJournal extends Component {
                             id='title'
                             name='title'
                             type='text'
+                            value={title.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -232,6 +278,7 @@ class AddJournal extends Component {
                             id='date'
                             name='date'
                             type='date'
+                            value={date.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -246,6 +293,7 @@ class AddJournal extends Component {
                             id='duration'
                             name='duration'
                             type='number'
+                            value={duration.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -260,6 +308,7 @@ class AddJournal extends Component {
                             id='goal'
                             name='goal'
                             type='text'
+                            value={goal.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -274,6 +323,7 @@ class AddJournal extends Component {
                             id='beforeMood'
                             name='beforeMood'
                             type='text'
+                            value={beforemood.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -288,6 +338,7 @@ class AddJournal extends Component {
                             id='afterMood'
                             name='afterMood'
                             type='text'
+                            value={aftermood.value}
                             aria-required='true'
                             aria-invalid='true'
                             aria-describedby="validate"
@@ -306,7 +357,7 @@ class AddJournal extends Component {
                             onChange={e => this.updateCategory(e.target.value)}
                             required
                         >
-                            <option value='None'>Date Category</option>
+                            <option value={category.value}>{category.value}</option>
                             {options}
                         </select>
                         {this.state.category.touched && (
@@ -316,6 +367,7 @@ class AddJournal extends Component {
                         <textarea
                             id='journalContent'
                             name='journalContent'
+                            value={content}
                             onChange={e => this.updateContent(e.target.value)}
                         />
 
@@ -341,4 +393,4 @@ class AddJournal extends Component {
     }
 }
 
-export default AddJournal;
+export default EditJournal;

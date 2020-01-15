@@ -1,72 +1,40 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import DateCategory from './DateCategory/DateCategory';
 import Filter from './Filter/Filter';
+import JournalContext from '../../contexts/JournalContext';
+import DateCategoryApiService from '../../services/date_category-api-service';
+import JournalApiService from '../../services/journal-api-service';
 import './Journal.css';
 
 class Journal extends Component {
-    render() {
-        const categories = [
-            {
-                id: 1,
-                name: "September 2011"
-            },
-            {
-                id: 2,
-                name: "December 2019"
-            },
-            {
-                id: 3,
-                name: "April 2020"
-            }
-        ];
+    static contextType = JournalContext;
 
-        const journals = [
-            {
-                id: 1,
-                categoryid: 1,
-                name: 'journal 1',
-                duration: 5,
-                beforemood: "stressed",
-                aftermood: "relieved",
-                date: new Date(),
-                goal: '',
-                content: ''
-            },
-            {
-                id: 2,
-                categoryid: 2,
-                name: 'journal 2',
-                duration: 5,
-                beforemood: "stressed",
-                aftermood: "relieved",
-                date: new Date(),
-                goal: '',
-                content: ''
-            },
-            {
-                id: 3,
-                categoryid: 3,
-                name: 'journal 3',
-                duration: 5,
-                beforemood: "stressed",
-                aftermood: "relieved",
-                date: new Date(),
-                goal: '',
-                content: ''
-            }
-        ];
+    componentDidMount() {
+        this.context.clearError();
+        DateCategoryApiService.getCategories()
+            .then(categories => this.context.setCategories(categories))
+            .catch(error => this.context.setError(error));
+        JournalApiService.getJournals()
+            .then(journals => this.context.setJournals(journals))
+            .catch(error => this.context.setError(error));
+    }
+
+    render() {
 
         return (
             <div className="JournalHome">
                 <header>
-                    <h3>Journals</h3>
+                    <h3 onClick={() => this.context.reset()}>
+                        <Link to='/journals'>Journals</Link>
+                    </h3>
                 </header>
 
                 <nav className='categories-nav'>
-                    <DateCategory categories={categories} />
+                    <DateCategory />
                 </nav>
                 <section className='journals'>
-                    <Filter journals={journals} />
+                    <Filter />
                 </section>
 
             </div>

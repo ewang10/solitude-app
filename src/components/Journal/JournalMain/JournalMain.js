@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 import Button from '../../Util/Button/Button';
+import JournalContext from '../../../contexts/JournalContext';
+import JournalApiService from '../../../services/journal-api-service';
 import './JournalMain.css';
+import '../../Util/Button/Button.css';
 
 class JournalMain extends Component {
+    static contextType = JournalContext;
+
+    handleDeleteJournal(journal_id, cb) {
+        this.context.clearError();
+        JournalApiService.deleteJournal(journal_id)
+            .then(() => {
+                cb(journal_id);
+                this.props.history.push('/journals');
+            })
+            .catch(error => this.context.setError(error));
+    }
+
     display() {
-        const { journal } = this.props;
-        const duration = journal.duration
+        const { journal } = this.context;
+        const duration = journal.duration;
         return (
             <>
                 <h4>{journal.name}</h4>
@@ -32,15 +48,27 @@ class JournalMain extends Component {
                         {journal.content}
                     </div>
                     <div className='content-controller'>
-                        <Button type='button' content='Edit' />
-                        <Button type='button' content='Delete' />
+                        <Link to={`/journals/edit-journal/${journal.id}`}>
+                            <Button type='button' content='Edit' />
+                        </Link>
+                        <button
+                            type='button'
+                            className='util-button'
+                            onClick={() => this.handleDeleteJournal(
+                                journal.id,
+                                this.context.deleteJournal
+                            )}
+                        >
+                            Delete
+                        </button>
+
                     </div>
                 </section>
             </>
         );
     }
     render() {
-        const journalDetails = this.display();
+        const journalDetails = this.context.journal ? this.display() : '';
         return (
             <section className='JournalMain center'>
                 {journalDetails}
