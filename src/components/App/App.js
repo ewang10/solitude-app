@@ -19,6 +19,7 @@ import AuthApiService from '../../services/auth-api-service';
 import PublicOnlyRoute from '../Util/PublicOnlyRoute';
 import PrivateRoute from '../Util/PrivateRoute';
 import { JournalProvider } from '../../contexts/JournalContext';
+//import posterImg from '../../../public/CalmPoster.PNG';
 import './App.css';
 
 class App extends Component {
@@ -59,11 +60,11 @@ class App extends Component {
         <TopNav />
         <main>
 
-
-            <video className='calm-bg-video' poster={process.env.PUBLIC_URL + '/CalmPoster.PNG'} autoPlay muted loop>
+          <div className='video-container'>
+            <video className='calm-bg-video' poster='CalmPoster.PNG' autoPlay muted loop>
               <source src={process.env.PUBLIC_URL + '/Calm.mp4'} type='video/mp4' />
             </video>
-
+          </div>
 
           <Route exact path="/" component={Main} />
           <PublicOnlyRoute path='/register' component={RegistrationForm} />
