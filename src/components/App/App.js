@@ -61,8 +61,8 @@ class App extends Component {
         <main>
 
           <div className='video-container'>
-            <video className='calm-bg-video' poster='CalmPoster.PNG' autoPlay muted loop>
-              <source src={process.env.PUBLIC_URL + '/Calm.mp4'} type='video/mp4' />
+            <video className='calm-bg-video' poster='/CalmPoster.PNG' autoPlay muted loop>
+              <source src='/Calm.mp4' type='video/mp4' />
             </video>
           </div>
 

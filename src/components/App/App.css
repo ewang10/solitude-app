@@ -78,7 +78,7 @@ button {
 @media (max-width: 767px) {
   
   .video-container {
-    background: url(CalmPoster.PNG) center center / cover no-repeat;
+    background: url("/CalmPoster.PNG") center center / cover no-repeat;
   }
   
 
