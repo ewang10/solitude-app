@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SearchMeditationApiService from '../../services/search-meditation-api-service';
 import SearchItem from './SearchItem/SearchItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './MeditationSearch.css';
 
 class MeditationSearch extends Component {
@@ -58,7 +60,9 @@ class MeditationSearch extends Component {
                     <label htmlFor="search">Find a guided meditation or calm background noise:</label>
                     <div className='search-wrapper'>
                         <input name="search" id="search" placeholder="eg. mindfulness, rainfall..." required />
-                        <button type="submit">Search</button>
+                        <button type="submit">
+                            <FontAwesomeIcon icon={faSearch}/>
+                        </button>
                     </div>
                 </form>
                 {

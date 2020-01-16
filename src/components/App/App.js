@@ -58,6 +58,13 @@ class App extends Component {
       <div className="App">
         <TopNav />
         <main>
+
+
+            <video className='calm-bg-video' poster={process.env.PUBLIC_URL + '/CalmPoster.PNG'} autoPlay muted loop>
+              <source src={process.env.PUBLIC_URL + '/Calm.mp4'} type='video/mp4' />
+            </video>
+
+
           <Route exact path="/" component={Main} />
           <PublicOnlyRoute path='/register' component={RegistrationForm} />
           <PublicOnlyRoute path='/login' component={LoginForm} />

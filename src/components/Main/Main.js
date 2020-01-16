@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import AuthApiService from '../../services/auth-api-service';
 import "./Main.css";
 
 class Main extends Component {
+    demoLogin() {
+        AuthApiService.postLogin({
+            user_name: 'demo',
+            password: 'Demo!2345'
+        })
+            .then(() => {
+                this.props.history.push('/search');
+                window.location.reload(false);
+            })
+            .catch(error => console.log(error.message));
+    }
     render() {
         return (
             <div className="Main">
                 <header>
                     <h2>Experience Enlightenment</h2>
-                    <p>Solitude helps you control your meditations, so you can see how you improve spiritually overtime.</p>
-                    <button type="button">
-                        <Link to='/search'>
-                            DEMO
-                        </Link>
+                    <p>Solitude helps you track your meditations, so you can see how you improve spiritually overtime.</p>
+                    <button
+                        type="button"
+                        onClick={() => this.demoLogin()}
+                    >
+                        Demo
                     </button>
                 </header>
                 <section className="about">
