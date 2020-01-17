@@ -18,3 +18,4 @@ of the app, users need to register for an account and login.
 **Techonologies used:**
 HTML/CSS/JavaScript/Node/Express/React/JSX/Knex/PostgreSQL
 
+Favicon made by Pixel Buddha from www.flaticon.com
