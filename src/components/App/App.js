@@ -61,6 +61,7 @@ class App extends Component {
         <main>
 
           <div className='video-container'>
+            <div className='color-overlay'></div>
             <video className='calm-bg-video' poster='/CalmPoster.PNG' autoPlay muted loop>
               <source src='/Calm.mp4' type='video/mp4' />
             </video>

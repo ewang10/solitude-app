@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background-color: rgb(187, 182, 182);
+    background-color: #E6E6FA;
   
     display: flex;
     flex-direction: row;
@@ -23,6 +23,11 @@
 }
   
 .BottomNav div:nth-child(1) {
-    background-color: black;
-    color: white;
+    border-right: solid 1px #757580;
+}
+
+.BottomNav .search-nav,
+.BottomNav .journal-nav {
+    color: #757580;
+    font-size: 2.5em;
 }

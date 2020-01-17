@@ -48,3 +48,15 @@
     display: block;
     margin: 0 auto;
 }
+
+@media screen and (min-width: 568px) {
+    .AddJournal > form {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .AddJournal > form {
+        width: 30%;
+    }
+}

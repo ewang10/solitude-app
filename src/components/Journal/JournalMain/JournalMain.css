@@ -35,3 +35,18 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+@media screen and (min-width: 568px) {
+    .JournalMain > .meditation-content {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    @media screen and (min-height: 900px) {
+        .JournalMain > .meditation-content {
+            width: 40%;
+            height: 200px;
+        }
+    }
+}

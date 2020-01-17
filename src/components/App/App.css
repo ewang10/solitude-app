@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   line-height: 150%;
+  color: white;
 }
 
 main {
@@ -17,31 +18,6 @@ a {
 button {
   cursor: pointer;
 }
-
-/*
-.video-container {
-  min-width: 100%; 
-  min-height: 100%; 
-
-  
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-
-
-.calm-bg-video {
-  position: absolute; 
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-*/
 
 .video-container {
   position: fixed;
@@ -59,6 +35,17 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 1;
 }
 
 @media (min-aspect-ratio: 16/9) {

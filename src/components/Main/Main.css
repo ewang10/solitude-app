@@ -23,6 +23,12 @@
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
+    background-color: #E6E6FA;
+    color: #757580;
+}
+
+.Main > header > button:hover {
+    color: #3B3B40;
 }
   
   

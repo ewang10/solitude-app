@@ -15,3 +15,16 @@
 .journal > .controller > button {
       font-size: 1em;
 }
+
+@media screen and (max-width: 400px) {
+      .journal > .controller > .date-created {
+          font-size: 14px;
+          margin-right: 2px;
+      }
+  }
+  
+@media screen and (min-width: 700px) {
+      .journal {
+            width: 60%;
+      }
+}

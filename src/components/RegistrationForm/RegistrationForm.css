@@ -6,14 +6,16 @@
 }
   
 .registration_form {
-      background-color: rgb(187, 182, 182);
+      background-color: #B0C4DE;
       padding: 20px;
-    display: flex;
-    flex-direction: column;
+      display: flex;
+      flex-direction: column;
 }
   
 .registration_form > legend {
       text-align: center;
+      font-size: 1.3em;
+      font-weight: 500;
 }
   
 .registration_form > div {
@@ -23,6 +25,7 @@
 .registration_form > div > label {
       display: inline-block;
       width: 90px;
+      font-weight: 700;
 }
   
 .registration_form > button {
@@ -31,6 +34,14 @@
       align-self: flex-end;
       padding: 5px 7px;
       cursor: pointer;
+      background-color: #E6E6FA;
+      color: #757580;
+      font-weight: 500;
+}
+
+.registration_form > button:hover {
+      color: #3B3B40;
+      font-weight: 700;
 }
 
 .registration_form > .alert {

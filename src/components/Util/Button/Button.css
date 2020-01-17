@@ -3,4 +3,10 @@
     border-radius: 3px;
     font-weight: 700;
     border: none;
+    background-color: #E6E6FA;
+    color: #757580;
+}
+
+.util-button:hover {
+    color: #3B3B40;
 }
