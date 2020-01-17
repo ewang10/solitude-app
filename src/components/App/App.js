@@ -11,15 +11,12 @@ import AddDateCategory from '../Journal/AddDateCategory/AddDateCategory';
 import AddJournal from '../Journal/AddJournal/AddJournal';
 import JournalMain from '../Journal/JournalMain/JournalMain';
 import EditJournal from '../Journal/EditJournal/EditJournal';
-//import DateCategory from '../Journal/DateCategory/DateCategory';
-//import Filter from '../Journal/Filter/Filter';
 import TokenService from '../../services/token-service';
 import IdleService from '../../services/idle-service';
 import AuthApiService from '../../services/auth-api-service';
 import PublicOnlyRoute from '../Util/PublicOnlyRoute';
 import PrivateRoute from '../Util/PrivateRoute';
 import { JournalProvider } from '../../contexts/JournalContext';
-//import posterImg from '../../../public/CalmPoster.PNG';
 import './App.css';
 
 class App extends Component {

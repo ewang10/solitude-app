@@ -31,7 +31,6 @@ class MeditationSearch extends Component {
         });
         SearchMeditationApiService.getSearchResults(search.value)
             .then(data => {
-                console.log('data', data)
                 this.setState({ searchResults: data.items });
                 if (this.state.searchResults.length === 0) {
                     this.setState({ noResult: true });

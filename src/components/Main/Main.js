@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import { Link } from 'react-router-dom';
 import "./Main.css";
 
 class Main extends Component {
@@ -31,8 +31,13 @@ class Main extends Component {
                 <section className="about">
                     <h2>How it works</h2>
                     <p>Solitude is a meditation journal that tracks the amount of time you meditated for, content of meditations, date of meditations, goal of meditations, whether goal was achieved, and mood before and after meditations. Don't know how to meditate? Want a guided meditation, or calm background noise? No problem! Just search it up, and it will lead you to the YouTube video of what you are looking for.</p>
-                    <p>[placeholder for screenshot of meditation recording interface]</p>
+                    <Link to='/register'>
+                        <button type='button'>
+                            Join Now
+                        </button>
+                    </Link>
                 </section>
+
             </div>
         );
     }
