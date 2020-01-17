@@ -7,12 +7,12 @@ class SearchItem extends Component {
         return (
             <li className='SearchItem'>
                 <div className='item'>
-                    <h6>
+                    <h4>
                         <a href={`http://youtu.be/${item.id.videoId}`}
                             target='_blank' rel="noopener noreferrer">
                             {item.snippet.title}
                         </a>
-                    </h6>
+                    </h4>
                 </div>
             </li>
         );

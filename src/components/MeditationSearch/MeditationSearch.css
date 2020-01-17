@@ -24,6 +24,7 @@
     font-size: 1em;
     border-radius: 5px 0 0 5px;
     border-right: none;
+    border: 3px;
 }
   
 .video_search > .search-wrapper > button {
@@ -33,6 +34,17 @@
     border-radius: 0 5px 5px 0;
     text-align: center;
     border:none;
+    background-color: #E6E6FA;
+    color: #757580;
+}
+
+#meditation-search-icon {
+    color: #757580 !important;
+}
+
+.video_search > .search-wrapper > button:hover {
+    color: #3B3B40;
+    font-weight: 700;
 }
 
 .no-results {

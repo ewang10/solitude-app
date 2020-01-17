@@ -26,8 +26,8 @@
     border-right: solid 1px #757580;
 }
 
-.BottomNav .search-nav,
-.BottomNav .journal-nav {
+#search-nav,
+#journal-nav {
     color: #757580;
     font-size: 2.5em;
 }

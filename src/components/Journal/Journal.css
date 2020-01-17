@@ -11,6 +11,10 @@
     margin: 10px;
 }
 
+.JournalHome > header > h3 > a {
+    color: white;
+}
+
 .JournalHome .categories-nav {
     grid-area: categories;
     margin: 10px auto;

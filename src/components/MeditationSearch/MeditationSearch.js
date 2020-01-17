@@ -61,7 +61,7 @@ class MeditationSearch extends Component {
                     <div className='search-wrapper'>
                         <input name="search" id="search" placeholder="eg. mindfulness, rainfall..." required />
                         <button type="submit">
-                            <FontAwesomeIcon icon={faSearch}/>
+                            <FontAwesomeIcon icon={faSearch} id='meditation-search-icon'/>
                         </button>
                     </div>
                 </form>

@@ -1,9 +1,17 @@
 .journal {
     display: flex;
     flex-direction: column;
-    background-color: grey;
+    background-color: #B0C4DE;
     margin: 5px 15px;
     padding: 10px;
+}
+
+.journal > h4 > a {
+      color: white;
+}
+
+.journal > h4 > a:hover {
+      color: blue;
 }
   
 .journal > .controller {

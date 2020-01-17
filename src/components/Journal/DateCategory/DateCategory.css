@@ -1,7 +1,15 @@
 .DateCategory > .category {
-      background-color: rgb(187, 182, 182);
+      background-color: #B0C4DE;
       font-size: 1em;
       margin-bottom: 5px;
       padding: 5px 10px;
-      text-align: center;
+      text-align: center; 
+}
+
+.DateCategory > .category > h4 > a {
+      color: white;
+}
+
+.DateCategory > .category > h4 > a:hover {
+      color: blue;
 }

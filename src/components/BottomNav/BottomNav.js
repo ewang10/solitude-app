@@ -10,12 +10,12 @@ class BottomNav extends Component {
             <nav className='BottomNav'>
                 <div className="nav">
                     <Link to='/search'>
-                        <FontAwesomeIcon icon={faSearch} className='search-nav' />
+                        <FontAwesomeIcon icon={faSearch} id='search-nav' />
                     </Link>
                 </div>
                 <div className="nav">
                     <Link to='/journals'>
-                        <FontAwesomeIcon icon={faBook} className='journal-nav' />
+                        <FontAwesomeIcon icon={faBook} id='journal-nav' />
                     </Link>
                 </div>
             </nav>
