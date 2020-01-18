@@ -26,7 +26,7 @@ class DateCategory extends Component {
             <section className="DateCategory">
                 {categories}
                 <Link to='/journals/add-date-category'>
-                    <Button type='button' content='+ Date'/>
+                    <Button type='button' content='+ Month'/>
                 </Link>
             </section>
         );
