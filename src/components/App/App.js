@@ -26,7 +26,7 @@ class App extends Component {
     IdleService.setIdleCallback(this.logoutFromIdle);
     //if user is logged in
     if (TokenService.hasAuthToken()) {
-      //Register event listners that tracks user interactivity
+      //Register event listeners that tracks user interactivity
       IdleService.registerIdleTimerResets();
       //Queue the callback function to have token refresh just
       //before it expires
